@@ -1,4 +1,3 @@
-from os import stat
 from django.shortcuts import render
 from .models import Article
 from .serializers import ArticleSerializer
@@ -36,7 +35,7 @@ class ArticleViewSet(viewsets.ModelViewSet):
     lookup_field = 'slug'
 
     permission_classes = [IsAuthenticated, IsAuthor]
-    # authentication_classes = (TokenAuthentication, SessionAuthentication)
+    authentication_classes = (TokenAuthentication, SessionAuthentication)
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
