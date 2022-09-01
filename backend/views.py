@@ -1,4 +1,3 @@
-from msilib.schema import Class
 from os import stat
 from django.shortcuts import render
 from .models import Article
